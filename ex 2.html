@@ -34,24 +34,14 @@ p {
 
 <script>
 
-//window.alert ("Site Perigoso!");
 
-//window.confirm ('Você tem certeza que deseja continuar?');
+let numero = Number (window.prompt ('Digite um número:'));
 
-let nome = window.prompt ('Digite seu nome:');
+let numero2 = Number (window.prompt ('Digite outro número:'));
 
-document.write (`Olá <strong> ${nome} </strong>, seu nome tem ${nome.length} letras`);
+let soma = numero + numero2;
 
-
-//let nome = window.prompt ('Digite seu nome:');
-
-//alert('Bem-Vindo(a) de volta ' + nome);
-
-/*if (nome == null || nome == "") {
-    window.alert ("Você não digitou nada!");
-} else {
-    window.alert ("Olá " + nome + ", seja bem-vindo(a)!");
-}*/
+alert (`A soma entre ${numero} e ${numero2} é igual a ${soma}`);
 
 </script>
 

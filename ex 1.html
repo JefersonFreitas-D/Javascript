@@ -19,8 +19,20 @@ h1 {
 
 p {
     padding: 20px;
+    text-indent: 10px;
+    text-transform: uppercase;
 }
 
+div {
+    display: block;
+    text-align: center;
+    margin: auto;
+    text-transform: uppercase;
+    background-color: rgb(0, 136, 255);
+    height: 50px;
+    padding-top: 20px;
+
+}
 
 </style>
 
@@ -28,17 +40,20 @@ p {
 
     <h1>Javascript teste</h1> 
 
-    <h2>Testando Javascript</h2>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis sunt sit rerum incidunt, hic ea harum? Veritatis ad explicabo odit hic id, eius adipisci quo facilis modi autem ratione saepe. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur ducimus perferendis porro reiciendis. Vel velit in, placeat, ipsam vitae dolorum aperiam deserunt, aliquam culpa quas eius voluptatem nam ducimus perspiciatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, consequatur maxime earum sed doloremque suscipit veniam eaque fugiat commodi velit distinctio quo quibusdam nulla illum alias, dolorum esse provident illo? Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus expedita rerum voluptas voluptatem eligendi ipsam repudiandae suscipit aliquam minus, facere vitae nostrum nulla amet saepe dolorum. Voluptatem est placeat molestias?</p>
 
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis sunt sit rerum incidunt, hic ea harum? Veritatis ad explicabo odit hic id, eius adipisci quo facilis modi autem ratione saepe.</p>
+    <h1> Segundo parágrafo</h1>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam deleniti provident error at animi corrupti laboriosam quasi maiores quibusdam mollitia neque recusandae cum sed, illo nulla architecto sapiente hic sequi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum nihil quaerat quis deleniti ab. Veniam, accusamus. Consectetur, sunt tempore, magni iste quas asperiores corporis dolorem quos, aliquid dignissimos omnis voluptatum! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae neque voluptate nesciunt praesentium ad et officia voluptatibus iste, soluta accusantium, exercitationem maiores dolores voluptatem corporis non culpa saepe a dolore!</p>
+
+    <div id="domi">Div (Teste de <strong>DOM</strong> ) </div>
 
 <script>
 
 //window.alert ("Site Perigoso!");
 
 //window.confirm ('Você tem certeza que deseja continuar?');
-
-let nome = window.prompt ('Digite seu nome:');
+/*let nome = window.prompt ('Digite seu nome:');
 
 document.write (`Olá <strong> ${nome} </strong>, seu nome tem ${nome.length} letras`);
 
@@ -52,6 +67,29 @@ document.write (`Olá <strong> ${nome} </strong>, seu nome tem ${nome.length} le
 } else {
     window.alert ("Olá " + nome + ", seja bem-vindo(a)!");
 }*/
+
+let b = document.body
+b.style.backgroundColor = "gray";
+
+tit = document.getElementsByTagName('h1')[0]
+
+tit.style.color = 'green';
+
+let p1 = document.getElementsByTagName('p')[0]
+
+//document.write(p1.innerText);
+
+/*dom = document.getElementById('domi')
+
+domi.style.backgroundColor = 'pink';
+
+domi.innerText = 'Testando o Javascript DOM';*/
+
+let dom = document.querySelector('#domi')
+
+dom.innerHTML = 'Testando elemento DOM'
+
+
 
 </script>
 

@@ -34,6 +34,11 @@ div {
 
 }
 
+#res {
+    margin-top: 10px;
+
+}
+
 </style>
 
 <body>
@@ -48,7 +53,61 @@ div {
 
     <div id="domi">Div (Teste de <strong>DOM</strong> ) </div>
 
+    <h1> Calculadora</h1>
+
+    <input type="number" name="n1" id="n1"> +
+    <input type="number" name="n2" id="n2">
+    <input type="button" value="Somar" id="som" onclick="somar()">
+    <div id="res">Resultado</div>
+
 <script>
+
+    domi.addEventListener('click', clicar);
+    domi.addEventListener('mouseenter', entrar);
+    domi.addEventListener('mouseout', sair);
+
+
+let b = document.body
+b.style.backgroundColor = "gray";
+
+tit = document.getElementsByTagName('h1')[0]
+
+tit.style.color = 'green';
+
+let p1 = document.getElementsByTagName('p')[0]
+
+
+function clicar() {
+let domi = document.querySelector('#domi')
+domi.innerHTML = 'Você clicou na div!';
+domi.style.backgroundColor = 'green';
+}
+
+function entrar() {
+    let domi = document.querySelector('#domi')
+    domi.innerHTML = 'Você entrou na div!';
+    domi.style.backgroundColor = 'red';
+}
+
+function sair () {
+    let domi = document.querySelector('#domi')
+    domi.innerHTML = 'Você saiu da div!';
+    domi.style.backgroundColor = 'blue';
+}
+function somar() {
+let n1 = document.querySelector('#n1');
+let n2 = document.querySelector('#n2');
+let result = document.getElementById('res');
+let num1 = Number(n1.value);
+let num2 = Number(n2.value);
+let s = num1 + num2;
+res.innerHTML = s;
+
+}
+
+
+
+
 
 //window.alert ("Site Perigoso!");
 
@@ -68,14 +127,6 @@ document.write (`Olá <strong> ${nome} </strong>, seu nome tem ${nome.length} le
     window.alert ("Olá " + nome + ", seja bem-vindo(a)!");
 }*/
 
-let b = document.body
-b.style.backgroundColor = "gray";
-
-tit = document.getElementsByTagName('h1')[0]
-
-tit.style.color = 'green';
-
-let p1 = document.getElementsByTagName('p')[0]
 
 //document.write(p1.innerText);
 
@@ -85,11 +136,9 @@ domi.style.backgroundColor = 'pink';
 
 domi.innerText = 'Testando o Javascript DOM';*/
 
-let dom = document.querySelector('#domi')
+/*let dom = document.querySelector('#domi')
 
-dom.innerHTML = 'Testando elemento DOM'
-
-
+dom.innerHTML = 'Testando elemento DOM'*/
 
 </script>
 

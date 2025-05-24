@@ -15,10 +15,29 @@ body {
 
 h1 {
     text-align: center;
+    padding: 10px;
+    color: black;
 }
 
 p {
     padding: 20px;
+    display: inline;
+    
+    color: rgba(0, 0, 0, 0.804);
+}
+
+#cont {
+    background-color: aquamarine;
+    
+
+}
+
+#res {
+    margin-top: 20px;
+    padding: 10px;
+    height: 10px;
+    font-weight: bold;
+    background-color: rgba(66, 133, 111, 0.571);
 }
 
 
@@ -26,26 +45,58 @@ p {
 
 <body>
 
-    <h1>Javascript teste</h1> 
+    <div id="cont">
 
-    <h2>Testando Javascript</h2>
+        <h1>Calculando multas </h1>
+        <p>Velocidade do veículo:</p> <input type="number" name="vel" id="vel"><p> km/h</p>
+        <input type="button" value="Verificar status da multa" onclick="verificar()">
+        <div id="res"><p> Seu status é:</p></div>
 
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis sunt sit rerum incidunt, hic ea harum? Veritatis ad explicabo odit hic id, eius adipisci quo facilis modi autem ratione saepe.</p>
+    </div>
 
 <script>
 
+    res = document.querySelector('#res');
+    vel = document.getElementById('vel');
+    function verificar() {
+        let v = Number(vel.value);
 
-let numero = Number (window.prompt ('Digite um número:'));
+        switch (true) {
+            case (v < 60):
+                res.style.backgroundColor = 'red';
+                res.style.color = 'white';
+                res.innerHTML = `Sua velocidade é de ${v} km/h, abaixo de 60`;
+                break;
+            case (v === 60):
+                res.style.backgroundColor = 'yellow';
+                res.style.color = 'white';
+                res.innerHTML = `Sua velocidade é de ${v} km/h, normal`;
+                break;
+            case (v > 60):
+                res.style.backgroundColor = 'green';
+                res.style.color = 'white';
+                res.innerHTML = `Sua velocidade é de ${v} km/h, acima de 60`;
+                break;
+        }
 
-let numero2 = Number (window.prompt ('Digite outro número:'));
+        /*if (v < 60) {
+            res.innerHTML = `Sua velocidade é de ${v} km/h, abaixo de 60`;
+        } else if (v === 60) {
+            res.innerHTML = `Sua velocidade é de ${v} km/h, normal`;
+        } else if (v > 60) {
+            res.innerHTML = `Sua velocidade é de ${v} km/h, acima de 60`;
+        }*/
+    }
+            
+    
 
-let soma = numero + numero2;
-
-alert (`A soma entre ${numero} e ${numero2} é igual a ${soma}`);
-
+    /*res.innerHTML = (`<p>Sua velocidade foi de <strong>${v} km/h</strong></p>`) 
+            res.innerHTML +=(`<p>você está na velocidade permitida , livre de multa!</p>`) } else {
+            res.innerHTML = (`<p>Sua velocidade foi de <strong>${v} km/h</strong></p>`)
+            res.innerHTML +=(`<p>você está acima da velocidade permitida, você foi MULTADO!</p>`)*/
+        
 </script>
 
 </body>
 
 </html>
-

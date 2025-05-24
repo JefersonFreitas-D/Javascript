@@ -36,6 +36,9 @@ div {
 
 #res {
     margin-top: 10px;
+    margin-bottom: 10px;
+    height: 50px;
+    width:600px;
 
 }
 
@@ -101,7 +104,7 @@ let result = document.getElementById('res');
 let num1 = Number(n1.value);
 let num2 = Number(n2.value);
 let s = num1 + num2;
-res.innerHTML = s;
+res.innerHTML = ` O resultado é ${s}`;
 
 }
 
@@ -138,7 +141,15 @@ domi.innerText = 'Testando o Javascript DOM';*/
 
 /*let dom = document.querySelector('#domi')
 
-dom.innerHTML = 'Testando elemento DOM'*/
+dom.innerHTML = 'Testando elemento DOM'
+
+let numero = Number (window.prompt ('Digite um número:'));
+
+let numero2 = Number (window.prompt ('Digite outro número:'));
+
+let soma = numero + numero2;
+
+alert (`A soma entre ${numero} e ${numero2} é igual a ${soma}`);/
 
 </script>
 

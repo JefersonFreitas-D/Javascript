@@ -5,6 +5,8 @@ body {
     background-color: rgb(59, 158, 182);
 }
 
+
+
 main {
     background-color: rgba(65, 105, 225, 0.295);
     padding-bottom: 5px;
@@ -16,7 +18,7 @@ main {
 }
 
 main  h1 {
-    background-color: rgba(65, 105, 225, 0.295);
+    
     padding-top: 5px;
     border-radius:10px 10px 0px 0px;
     padding-top: 180px;
@@ -25,7 +27,7 @@ main  h1 {
 }
 
 header {
-    background-color: rgb(59, 158, 182);
+
     color: white;
     text-align: center;
     

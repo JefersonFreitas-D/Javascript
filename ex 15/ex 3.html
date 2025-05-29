@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício js</title><link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main>
+
+        <header>
+            <h1>Verificar idade</h1>
+        </header>
+
+        <section>
+            <div> 
+                <p>Ano de Nascimento:
+
+                    <input type="number" name="ano" id="ano" min="0">
+                   
+                </p>
+
+                <p>
+                    Sexo:
+
+                    <input type="radio" name="sex" id="masc" checked>
+                    <label for="masc">Masculino</label>
+
+                    <input type="radio" name="sex" id="fem">
+                    <label for="fem">Feminino</label>
+
+                </p>
+
+                <p> <input type="button" value="Verificar" onclick="verificar()">
+</p>
+
+            </div>
+
+
+            <div id=res> Insira seus dados e veja o resultado aqui! </div>
+
+        </section>
+
+        <footer>
+            <p>&copy; Curso em vídeo</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

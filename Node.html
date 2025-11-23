@@ -1,0 +1,37 @@
+ <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Node.js e Express</title>
+</head>
+<body>
+    <h1>Interagindo com o Servidor</h1>
+    <button id="getData">Fazer GET</button>
+    <button id="sendData">Fazer POST</button>
+
+    <script>
+        document.getElementById('getData').addEventListener('click', () => {
+            fetch('http://localhost:3000/api/data')
+                .then(response => response.json())
+                .then(data => console.log('Resposta GET:', data))
+                .catch(error => console.error('Erro:', error));
+        });
+
+        document.getElementById('sendData').addEventListener('click', () => {
+            fetch('http://localhost:3000/api/data', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', },
+                body: JSON.stringify({ name: 'João', age: 25 })
+            })
+                .then(response => response.json())
+                .then(data => console.log('Resposta POST:', data))
+                .catch(error => console.error('Erro:', error));
+        });
+    </script>
+
+</body>
+
+</html>
+    

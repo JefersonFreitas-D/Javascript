@@ -1,27 +1,37 @@
 {
-  "name": "javascript",
+  "name": "job_finder",
   "version": "1.0.0",
   "description": "Curso de js",
-  "main": "Javascript.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev":"nodemon app.js"
+    
   },
   "repository": {
     "type": "git",
     "modules": "commonjs",
     "url": "git+https://github.com/JefersonFreitas-D/Javascript.git"
   },
-  "author": "",
+  "author": "Dev_JF",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/JefersonFreitas-D/Javascript/issues"
   },
   "homepage": "https://github.com/JefersonFreitas-D/Javascript#readme",
   "dependencies": {
+    "body-parser": "^2.2.1",
     "cors": "^2.8.5",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "express-handlebars": "^8.0.3",
+    "sequelize": "^6.37.7",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.19"
-  }
+    "@types/cors": "^2.8.19",
+    "nodemon": "^3.1.11"
+  },
+  "keywords": [
+    "vagas",
+    "dev"
+  ]
 }

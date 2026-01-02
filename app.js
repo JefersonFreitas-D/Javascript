@@ -1,6 +1,6 @@
 const express = require('express'); //importa o express
 const app = express(); //inicia o express
-const db = require('./db/conections') //importa a conexao com o banco de dados
+const db = require('./.db/conections') //importa a conexao com o banco de dados
 
 //testa a conexao com o banco de dados
 const PORT= 3000;

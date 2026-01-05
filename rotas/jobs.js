@@ -8,15 +8,19 @@ router.get('/test', (req, res) => {
     res.send("rota de teste funcionando")
 });
 
+router.get('/add', (req, res) => { 
+    res.render('add');
+});//rota para o formulario de adicionar job
+
 router.post('/add', (req, res) => { //recebe os dados do formulario
 
 let{title, description, salary, company, email, new_job} = req.body;
 
 
 Job.create({ //adiciona um novo job no banco de dados
-Título: title,
+Titulo: title,
 description: description,
-Salário: salary,
+Salario: salary,
 Empresa: company,
 email: email,
 new_job: new_job

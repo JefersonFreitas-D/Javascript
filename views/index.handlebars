@@ -9,7 +9,7 @@
         Somos o site com mais vagas de emprego do Brasil no mercado de tecnologia
     </p>
 
-    <form id="search-form" class="form-inline" action="">
+    <form id="search-form" class="form-inline" action="/" method="GET">
         <div class="form-group col-md-10">
 
             <input type="text" class="form-control" name="job" id="job" placeholder="Digite a vaga que está buscando">
@@ -32,19 +32,27 @@
 
     <div class="row">
        <div class="col-md-12">
+        {{#if search}}
+
+        <h2 id="job-list-title">
+          Vagas encontradas para a busca: "{{search}}"
+         </h2>
+
+         {{else}}
          <h2 id="job-list-title">
             Veja nossas vagas em destaque
          </h2>
+         {{/if}}
          <ul id="job-list" class="list-group">
 
             {{#each jobs}} 
-            <li class="list-group-item new-job">
+            <li class="list-group-item{{#if dataValues.new_job}} new-job {{/if}}">
                  <div id="img"><img src="/img/empresa.png" alt="Company"></div>
                 <p>{{dataValues.Empresa}}</p>
                 <h2>{{dataValues.Titulo}}</h2>
                 <p>R$ {{dataValues.Salario}}</p>
                 <span class="new-job-label">Nova</span>
-              <a href="" class="btn btn-primary">Ver Vaga</a>
+              <a class="btn btn-primary" href="/jobs/view/{{dataValues.id}}">Ver Vaga</a>
             </li>
 
             {{/each}}

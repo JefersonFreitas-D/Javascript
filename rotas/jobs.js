@@ -3,10 +3,21 @@ const router = express.Router();
 const Job = require('../models/Job');
 //rota para adicionar um novo job 
 
-router.get('/test', (req, res) => {
+router.get('/test', (req, res) => { 
 
     res.send("rota de teste funcionando")
 });
+
+
+router.get('/view/:id', (req, res) => Job.findOne({ 
+    where: {id: req.params.id} //busca o job pelo id
+}).then(job => {
+    res.render('view', {job
+
+    });
+
+}).catch(err => console.log(err))); //rota para ver os detalhes do job
+
 
 router.get('/add', (req, res) => { 
     res.render('add');
@@ -14,7 +25,7 @@ router.get('/add', (req, res) => {
 
 router.post('/add', (req, res) => { //recebe os dados do formulario
 
-let{title, description, salary, company, email, new_job} = req.body;
+let{title, description, salary, company, email, new_job} = req.body; //desestrutura o req.body
 
 
 Job.create({ //adiciona um novo job no banco de dados
@@ -32,4 +43,4 @@ new_job: new_job
 
 });
 
-module.exports = router;
+module.exports = router;//exporta o router

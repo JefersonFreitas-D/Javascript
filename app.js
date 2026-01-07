@@ -5,10 +5,12 @@ const app = express(); //inicia o express
 const db = require('./.db/conections') //importa a conexao com o banco de dados
 const bodyParser = require('body-parser');
 //testa a conexao com o banco de dados
-const Job = require('./models/Job')
+const Job = require('./models/Job');
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op; //operadores do sequelize
 const PORT= 3000;
 
-const router = express.Router();
+const router = express.Router(); //inicia o router
 
 
 app.listen(PORT, function(){ //inicia o servidor
@@ -31,16 +33,47 @@ db.authenticate() //testa a conexao
     console.log("Houve um erro na conexão", err)
 }); 
 
+
+
+
+
+
 app.get('/', (req, res) => { //rota principal
+
+  
+let search = req.query.job;
+let query = '%' + search + '%' //formata a busca para o banco de dados
+
+if(!search) {
 
   Job.findAll({order:[ //busca todos os jobs no banco de dados
     ['createdAt', 'DESC'] //ordena por data de criação decrescente
   ]})
 
+
   .then(jobs => res.render('index', {jobs
 
-  })); //renderiza a view index
 
+
+  })) //renderiza a view index
+
+.catch(err => console.log(err));
+
+} else{
+    Job.findAll({
+      where:{Titulo: {[Op.like]: query}},
+      order:[ //busca todos os jobs no banco de dados
+    ['createdAt', 'DESC'] //ordena por data de criação decrescente
+  ]})
+
+
+  .then(jobs => res.render('index', {jobs, search //renderiza a view index
+
+  })) 
+
+  .catch(err => console.log(err));
+
+  }
 
 console.log("Requisicão feita com sucesso")
 });

@@ -46,6 +46,30 @@ for(let i= 0; i < boxes.length; i++){
 
 }
 
+
+for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', function() {
+        
+        // 1. Define a escolha do jogador
+        playerTwo = this.getAttribute('id');
+
+        // 2. Esconde todos os botões imediatamente
+        for (let j = 0; j < buttons.length; j++) {
+            buttons[j].style.display = 'none';
+        }
+
+        // 3. Mostra o container após 500ms (FORA do loop interno)
+        setTimeout(function() {
+            // Ajustado: Adicionado 'document.' e corrigido 'classList'
+            let container = document.querySelector('#container');
+            container.classList.remove('hide'); 
+        }, 500);
+    });
+}
+
+
+
+
 //verifica quem joga
 function checkPlayer(player1, player2){
       if(player1 == player2){
@@ -88,13 +112,15 @@ function checkWinner(){
         if(box1child == 'X' && box2child =='X' && box3child =='X') {
             //x
 
-            console.log('X venceu')
+           whoWin('x')
 
         } else if(box1child == 'O' && box2child == 'O' && box3child == 'O') {
             //o
 
-            console.log('O venceu')
+            whoWin('o')
         }
+
+        
 
      }
 
@@ -110,13 +136,15 @@ function checkWinner(){
         if(box4child == 'X' && box5child =='X' && box6child =='X') {
             //x
 
-            console.log('X venceu')
+             whoWin('x')
 
         } else if(box4child == 'O' && box5child == 'O' && box6child == 'O') {
             //o
+             whoWin('o')
+           
+        }
 
-            console.log('O venceu')
-        }8
+         
 }
 
 if(box7.childNodes.length > 0 && box8.childNodes.length > 0 && box9.childNodes.length > 0 ) {
@@ -131,15 +159,17 @@ if(box7.childNodes.length > 0 && box8.childNodes.length > 0 && box9.childNodes.l
         if(box7child == 'X' && box8child =='X' && box9child =='X') {
             //x
 
-            console.log('X venceu')
+           whoWin('x')
 
         } else if(box7child == 'O' && box8child == 'O' && box9child == 'O') {
             //o
 
-            console.log('O venceu')
+         whoWin('o')
         
 
 }
+
+ 
 
 }
 
@@ -159,18 +189,18 @@ if(box1.childNodes.length > 0 && box4.childNodes.length > 0 && box7.childNodes.l
         if(box1child == 'X' && box4child =='X' && box7child =='X') {
             //x
 
-            console.log('X venceu')
+           whoWin('x')
 
         } else if(box1child == 'O' && box4child == 'O' && box7child == 'O') {
             //o
 
-            console.log('O venceu')
-        1
+             whoWin('o')
+        
 
 
 
 }
-
+ 
 
 }
 
@@ -184,20 +214,21 @@ if(box2.childNodes.length > 0 && box5.childNodes.length > 0 && box8.childNodes.l
 
         let box8child = box8.childNodes[0].className
 
-        if(box2child == 'X' && box5child =='X' && box7child =='X') {
+        if(box2child == 'X' && box5child =='X' && box8child =='X') {
             //x
 
-            console.log('X venceu')
+      whoWin('x')
 
         } else if(box2child == 'O' && box5child == 'O' && box8child == 'O') {
             //o
 
-            console.log('O venceu')
-        1
+        whoWin('o')
 
 
 
 }
+
+ 
 
 }
 
@@ -214,17 +245,16 @@ if(box3.childNodes.length > 0 && box6.childNodes.length > 0 && box9.childNodes.l
         if(box3child == 'X' && box6child =='X' && box9child =='X') {
             //x
 
-            console.log('X venceu')
+           whoWin('x')
 
         } else if(box3child == 'O' && box6child == 'O' && box9child == 'O') {
             //o
 
-            console.log('O venceu')
-        1
-
-
+            whoWin('o')
 
 }
+
+ 
 
 }
 
@@ -243,18 +273,15 @@ if(box1.childNodes.length > 0 && box5.childNodes.length > 0 && box9.childNodes.l
 
         if(box1child == 'X' && box5child =='X' && box9child =='X') {
             //x
-
-            console.log('X venceu')
+        whoWin('x')
 
         } else if(box1child == 'O' && box5child == 'O' && box9child == 'O') {
             //o
 
-            console.log('O venceu')
-        1
+            whoWin('o')
 
-
-
-}7
+}
+ 
 }
 
      
@@ -270,17 +297,20 @@ if(box3.childNodes.length > 0 && box5.childNodes.length > 0 && box7.childNodes.l
         if(box3child == 'X' && box5child =='X' && box7child =='X') {
             //x
 
-            console.log('X venceu')
+            whoWin('x')
 
-        } else if(box3child == 'O' && box5child == 'O' && box7child == 'O') {
-            //o
+        } else if(box3child == 'O' && box5child == 'O' && box7child == 'O'){
 
-            console.log('O venceu')
-        1
+             whoWin('o')
 
+        }
+           
 
 
 }
+
+
+ 
 
 }
 
@@ -293,11 +323,63 @@ for(let i = 0; i < boxes.length; i++){
     if(boxes[i].childNodes[0] !=undefined){
 
         contador++
+    } else if(contador == 9){
+
+         whoWin("Deu Velha")
     }
 
-    if(contador == 9){
-        console.log('Deu Velha')
-    }
-}
+
 
 }
+
+ 
+
+
+
+
+
+
+function whoWin(winner){
+    let scoreX =document.querySelector('#scoreboard-1') 
+
+        let scoreO =document.querySelector('#scoreboard-2') 
+
+        let msg = ''
+
+        if(winner == 'x'){
+            scoreX.textContent = parseInt(scoreX.textContent) + 1
+
+            msg = 'O jogador 1 Venceu'
+
+        } else if(winner == 'o') {
+            scoreO.textContent = parseInt(scoreO.textContent) + 1
+
+                msg = 'O jogador 2 Venceu'
+
+        } else {
+            msg = 'Deu Velha'
+        }
+
+
+        messageText.innerHTML = msg
+        message.classList.remove('hide')
+
+        setTimeout(function() {
+    message.classList.add('hide')
+}, 3000);
+
+//zerar a contagem
+player1 = 0
+player2 = 0
+
+
+let boxesremove = document.querySelectorAll('.box div')
+
+    for(let i = 0; i < boxesremove.length; i++){
+        boxesremove[i].parentNode.removeChild(boxesremove[i])
+    }
+
+}
+
+
+

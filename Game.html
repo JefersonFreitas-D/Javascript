@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game-Quiz</title>
+</head><link rel="stylesheet" href="/css/quiz.css">
+
+
+<body>
+
+    <h1 id="main-title">Dev Quiz</h1>
+
+    <div class="hide" id="score-container">
+         <h2>Parabéns</h2>
+
+        <p id="display-score">
+
+            <span>
+             90
+            </span>
+            %
+        </p>
+
+         <p>Você acertou <span id="correct-answer"> 0</span> de <span id="questions-qty">10 </span>perguntas</p>
+
+         <button id="restart">Refazer Quiz</button>
+    </div>
+
+
+    <div id="quiz-container">
+ 
+        <p id="question">
+            <span id="question-number">1.</span> <span id="question-text">Quanto é 5 * 300?</span>
+        </p>
+
+
+        <div id="answers-box">
+
+            <button ><span class="btn-letter">A.</span>  <span class="question-answer"> 1500</span>  </button>
+
+            
+            <button ><span class="btn-letter">B.</span>  <span class="question-answer"> 1600</span>  </button>
+
+            
+            <button><span class="btn-letter">C.</span>  <span class="question-answer"> 1800</span>  </button>
+
+            
+            <button><span class="btn-letter">D.</span>  <span class="question-answer"> 2500</span>  </button>
+
+        </div>
+
+    </div>
+
+
+<button class="answer-template hide"> <span class="btn-letter">
+
+    <span class="question-answer">AAA</span>
+</span>
+AAA
+</button>
+    
+</body>
+
+
+<script src="/js/quiz.js"></script>
+</html>

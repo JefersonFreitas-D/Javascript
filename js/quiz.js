@@ -80,6 +80,8 @@ const questions = [
 function init() { // inicia o quiz
 
 creatQuestion(0) // cria a primeira pergunta
+points = 0
+actualQuestion = 0
 
 }
 
@@ -128,18 +130,16 @@ questions[i].answers.forEach(function(answer, i) { // para cada resposta
     answerTemplate.addEventListener('click', function(){
        checkAnswer(this)
     })
-
-
-
-
-    console.log(answerTemplate)
    
     
-  
 
-})
+    })
 
-actualQuestion++ // incrementa a pergunta atual
+  }
+
+
+
+
 
 
 
@@ -156,20 +156,16 @@ buttons.forEach(function(button){
 
         if(btn === button) {
             points++
-        }
-
-    
-
-
-} else {
+        } } else {
 
     button.classList.add('wrong-answer')
 }
 
 })
 
-nextQuestion()
 
+actualQuestion++ // incrementa a pergunta atual
+nextQuestion() // chama a próxima pergunta
 
 }
 
@@ -190,8 +186,15 @@ function nextQuestion(){
 
     }, 800)
 
+
    
 }
+
+    function hideorShow () {
+   quizContainer.classList.toggle('hide') // esconde o quiz
+    scoreContainer.classList.toggle('hide') // mostra a tela de score
+
+ }
 
 
 
@@ -213,7 +216,6 @@ function showEndMessage() {
 
     totalQuestions.textContent = questions.length  // mostra o número total de perguntas
 
-    const restartQuiz = document.querySelector('#restart')
 
 
 }
@@ -221,21 +223,16 @@ function showEndMessage() {
 
 
 
-function hideorShow () {
- quizContainer.classList.toggle('hide') // esconde o quiz
-    scoreContainer.classList.toggle('hide') // mostra a tela de score
 
-    const restartQuiz = document.querySelector('#restart')
+     const restartQuiz = document.querySelector('#restart') // seleciona o botão de reiniciar o quiz
 
- 
+    restartQuiz.addEventListener('click', function(){
 
-}
-
-
-
-}
-
-
+    actualQuestion = 0
+    points = 0
+    hideorShow ()
+    init()
+})
 
 
 init()
@@ -248,10 +245,4 @@ init()
 
 
 
-restartQuiz = document.addEventListener('click', function(){
 
-    actualQuestion = 0
-    points = 0
-    hideorShow ()
-    init()
-}) 

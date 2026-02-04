@@ -20,7 +20,9 @@ app.listen(PORT, function(){ //inicia o servidor
 app.use(bodyParser.urlencoded({extended:false})) //configura o body-parser
 
 app.set('views', path.join(__dirname, 'views'));//configura o caminho das views
+
 app.engine('handlebars', exphbs.engine({defaultLayout: 'main'})); //configura o handlebars
+
 app.set('view engine', 'handlebars'); //configura o handlebars como view engine
 
 app.use(express.static(path.join(__dirname, 'public'))); //configura a pasta public como estatica
@@ -29,6 +31,7 @@ db.authenticate() //testa a conexao
 
 .then(() => { //se conectar 
     console.log("Conexão com o banco de dados realizada com sucesso.")
+
 }).catch(err => {
     console.log("Houve um erro na conexão", err)
 }); 
@@ -44,9 +47,10 @@ app.get('/', (req, res) => { //rota principal
 let search = req.query.job;
 let query = '%' + search + '%' //formata a busca para o banco de dados
 
-if(!search) {
+if(!search) { //se a busca for vazia 
 
   Job.findAll({order:[ //busca todos os jobs no banco de dados
+    
     ['createdAt', 'DESC'] //ordena por data de criação decrescente
   ]})
 
